@@ -64,13 +64,15 @@ Add anything that you consider would impress us. Example:
 - Add a CHANGELOG with version releases.
 - Create a Dockerfile that makes the project a ready image for deploy.
 - Add some unit or E2E tests.
-- Use some advanced styling solution.
+- Use a library such as CSS Modules, Styled Components, Bootstrap, Tailwind CSS, or Material-UI for styling.
 
 ## Submission Guidelines 📮
 
 - Create a private repository on any platform of GitHub or GitLab platform.
 - Push the code in the repository.
-- Invite users: X, Y, Z
+- Invite users: X, Y, Z.
+- The challenge is designed to be moderately challenging, striking a balance between simplicity and complexity.
+- This challenge is expected to be done in approximately one day.
 
 ## Evaluation Criteria 🧐
 
