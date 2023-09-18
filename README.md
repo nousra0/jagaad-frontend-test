@@ -59,6 +59,7 @@ Each product in the JSON file has the following fields:
 Add anything that you consider would impress us. Example:
 
 - Write documentation how to get started with the project
+- Use Conventional Commits
 - Add animations or transitions for better user experience.
 - Implement a search functionality to filter products.
 - Add a CHANGELOG with version releases.
