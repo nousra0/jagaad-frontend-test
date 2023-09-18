@@ -24,10 +24,10 @@ https://raw.githubusercontent.com/jagaad/frontend-test/main/mock-products.json
 
 Each product in the JSON file has the following fields:
 
-- `image`: URL to the product image
-- `title`: Name of the product
-- `description`: Brief description of the product
-- `price`: Price of the product
+- `image`: URL to the product image (string)
+- `title`: Name of the product (string)
+- `description`: Brief description of the product (string)
+- `price`: Price of the product (string)
 
 ## Requirements 📝
 
