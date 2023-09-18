@@ -35,7 +35,7 @@ Each product in the JSON file has the following fields:
 ### 1. Home Page 🏠
 
 - Display 10 products at a time.
-- Each product should show the `image`, `title`, `description`, and `price`.
+- Each product should show the `image`, `title`, `description`, `price` and `currency`.
 - Ensure the design is responsive and looks good on both desktop and mobile.
 
 ### 2. Pagination 📄
