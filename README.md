@@ -65,6 +65,7 @@ Add anything that you consider would impress us. Example:
 - Implement a search functionality to filter products.
 - Add a CHANGELOG with version releases.
 - Create a Dockerfile that makes the project a ready image for deploy.
+- Deploy it somewhere (e.g. Vercel, Netlify) as a static website.
 - Add some unit or E2E tests.
 - Use a library such as CSS Modules, Styled Components, Bootstrap, Tailwind CSS, or Material-UI for styling.
 
