@@ -62,6 +62,8 @@ Add anything that you consider would impress us. Example:
 - Write documentation how to get started with the project
 - Use Conventional Commits
 - Add animations or transitions for better user experience.
+- Consider using Server Side Rendering (SSR)
+- Use [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) API to render price Currency
 - Implement a search functionality to filter products.
 - Add a CHANGELOG with version releases.
 - Create a Dockerfile that makes the project a ready image for deploy.
