@@ -77,7 +77,7 @@ Add anything that you consider would impress us. Example:
 
 - Create a private repository on any platform of GitHub or GitLab platform.
 - Push the code in the repository.
-- Invite users: [@iamandrewluca](https://github.com/iamandrewluca) on GitHub or [@iamandrewluca](https://gitlab.com/iamandrewluca) on GitLab 
+- Contact the HR with the link to the repository to be reviewed.
 - The challenge is designed to be moderately challenging, striking a balance between simplicity and complexity.
 - This challenge is expected to be done in approximately one day.
 
