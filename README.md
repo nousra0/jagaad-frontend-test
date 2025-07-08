@@ -75,7 +75,7 @@ Add anything that you consider would impress us. Example:
 
 ## Submission Guidelines 📮
 
-- Create a private repository on any platform of GitHub or GitLab platform.
+- Create a public repository on any platform of GitHub or GitLab platform.
 - Push the code in the repository.
 - Contact the HR with the link to the repository to be reviewed.
 - The challenge is designed to be moderately challenging, striking a balance between simplicity and complexity.
