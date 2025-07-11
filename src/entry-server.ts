@@ -1,12 +1,12 @@
 import { createSSRApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createRouter, createMemoryHistory } from 'vue-router';
-import { renderToString } from 'vue/server-renderer';
+import { renderToString } from '@vue/server-renderer';
 
 import App from './App.vue';
 import HomePage from './components/HomePage.vue';
 
-export async function render(url: string, manifest: any) {
+export async function render(url: string, manifest: Record<string, string[]>) {
   // Create router with memory history for SSR
   const router = createRouter({
     history: createMemoryHistory(),
@@ -37,7 +37,7 @@ export async function render(url: string, manifest: any) {
   app.use(router);
 
   // Render the app to HTML
-  const ctx: any = {};
+  const ctx: { modules: string[] } = { modules: [] };
   const html = await renderToString(app, ctx);
 
   // Generate preload links
@@ -46,7 +46,10 @@ export async function render(url: string, manifest: any) {
   return [html, preloadLinks];
 }
 
-function renderPreloadLinks(modules: string[], manifest: any) {
+function renderPreloadLinks(
+  modules: string[],
+  manifest: Record<string, string[]>
+) {
   let links = '';
   const seen = new Set();
   modules.forEach(id => {
