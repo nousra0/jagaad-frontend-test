@@ -9,7 +9,7 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       '~': resolve(__dirname, './'),
-      'vue': 'vue/dist/vue.runtime.esm-bundler.js' // Force ESM build
+      'vue': 'vue/dist/vue.esm-bundler.js'
     }
   },
   server: {

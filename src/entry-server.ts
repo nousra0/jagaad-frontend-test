@@ -15,6 +15,11 @@ export async function render(url: string, manifest: any) {
         path: '/',
         name: 'Home',
         component: HomePage
+      },
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        redirect: '/'
       }
     ]
   })
