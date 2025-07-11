@@ -21,6 +21,7 @@ export default defineConfig({
         app: resolve(__dirname, 'index.html'),
       },
     },
+    ssrManifest: true,
   },
   ssr: {
     // SSR-specific build options

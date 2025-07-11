@@ -9,6 +9,7 @@
     "build": "yarn build:client && yarn build:server",
     "build:server": "vue-tsc && vite build --ssr src/entry-server.ts --outDir dist/server",
     "build:client": "vue-tsc && vite build",
+    "vercel-build": "yarn build",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
     "serve": "node server/index.js",

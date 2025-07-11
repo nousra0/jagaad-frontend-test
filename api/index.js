@@ -13,7 +13,14 @@ export async function createServer(
   root = process.cwd(),
   isProd = process.env.NODE_ENV === 'production'
 ) {
-  const resolve = p => path.resolve(__dirname, p);
+  // For Vercel deployment, the built files are in the root directory
+  const resolve = p => {
+    if (process.env.VERCEL) {
+      // In Vercel, the API is in /var/task/api/ and built files are in /var/task/
+      return path.resolve(process.cwd(), p);
+    }
+    return path.resolve(__dirname, p);
+  };
 
   const indexProd = isProd
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
@@ -21,7 +28,7 @@ export async function createServer(
 
   const manifest = isProd
     ? JSON.parse(
-        fs.readFileSync(resolve('dist/client/ssr-manifest.json'), 'utf-8')
+        fs.readFileSync(resolve('dist/client/.vite/ssr-manifest.json'), 'utf-8')
       )
     : {};
 
@@ -58,7 +65,7 @@ export async function createServer(
       } else {
         // In production, use built files
         template = indexProd;
-        render = (await import('./dist/server/entry-server.js')).render;
+        render = (await import(resolve('dist/server/entry-server.js'))).render;
       }
 
       const [appHtml, preloadLinks] = await render(url, manifest);
