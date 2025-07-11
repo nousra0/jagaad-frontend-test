@@ -16,8 +16,8 @@ export async function createServer(
   // For Vercel deployment, the built files are in the root directory
   const resolve = p => {
     if (process.env.VERCEL) {
-      // Remove 'dist/' prefix for Vercel deployment
-      return path.resolve(__dirname, '../', p.replace(/^dist[\\/]/, ''));
+      // Go up one directory from /var/task/api/ to /var/task/
+      return path.resolve(__dirname, '../', p);
     }
     return path.resolve(__dirname, p);
   };
