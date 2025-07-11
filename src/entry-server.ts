@@ -37,7 +37,7 @@ export async function render(url: string, manifest: Record<string, string[]>) {
   app.use(router);
 
   // Render the app to HTML
-  const ctx: { modules: string[] } = { modules: [] };
+  const ctx: { modules: Set<string> } = { modules: new Set() };
   const html = await renderToString(app, ctx);
 
   // Generate preload links
@@ -47,7 +47,7 @@ export async function render(url: string, manifest: Record<string, string[]>) {
 }
 
 function renderPreloadLinks(
-  modules: string[],
+  modules: Set<string>,
   manifest: Record<string, string[]>
 ) {
   let links = '';
