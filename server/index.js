@@ -85,3 +85,16 @@ if (!isTest) {
     })
   );
 }
+
+// For Vercel serverless function export
+let handler;
+if (process.env.VERCEL) {
+  // Vercel will import this file and expect a default export
+  const serverPromise = createServer();
+  const vercelApp = serverPromise.then(({ app }) => app);
+  handler = async function (req, res) {
+    const app = await vercelApp;
+    app(req, res);
+  };
+}
+export default handler;
