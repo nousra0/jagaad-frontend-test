@@ -84,68 +84,68 @@ yarn test:e2e:headed
 #### Store Tests
 
 ```typescript
-import { describe, it, expect, beforeEach } from 'vitest'
-import { setActivePinia, createPinia } from 'pinia'
-import { useCartStore } from '@/stores/cartStore'
+import { describe, it, expect, beforeEach } from 'vitest';
+import { setActivePinia, createPinia } from 'pinia';
+import { useCartStore } from '@/stores/cartStore';
 
 describe('Cart Store', () => {
   beforeEach(() => {
-    setActivePinia(createPinia())
-  })
+    setActivePinia(createPinia());
+  });
 
   it('should add product to cart', () => {
-    const cartStore = useCartStore()
-    const product = { title: 'Test', price: '10.00', /* ... */ }
-    
-    cartStore.addToCart(product)
-    
-    expect(cartStore.items).toHaveLength(1)
-    expect(cartStore.cartCount).toBe(1)
-  })
-})
+    const cartStore = useCartStore();
+    const product = { title: 'Test', price: '10.00' /* ... */ };
+
+    cartStore.addToCart(product);
+
+    expect(cartStore.items).toHaveLength(1);
+    expect(cartStore.cartCount).toBe(1);
+  });
+});
 ```
 
 #### Component Tests
 
 ```typescript
-import { describe, it, expect, beforeEach } from 'vitest'
-import { mount } from '@vue/test-utils'
-import { setActivePinia, createPinia } from 'pinia'
-import ProductCard from '@/components/ProductCard.vue'
+import { describe, it, expect, beforeEach } from 'vitest';
+import { mount } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
+import ProductCard from '@/components/ProductCard.vue';
 
 describe('ProductCard', () => {
   beforeEach(() => {
-    setActivePinia(createPinia())
-  })
+    setActivePinia(createPinia());
+  });
 
   it('should render product information', () => {
     const wrapper = mount(ProductCard, {
-      props: { product: mockProduct }
-    })
+      props: { product: mockProduct },
+    });
 
-    expect(wrapper.find('.card-title').text()).toBe(mockProduct.title)
-  })
-})
+    expect(wrapper.find('.card-title').text()).toBe(mockProduct.title);
+  });
+});
 ```
 
 #### Composable Tests
 
 ```typescript
-import { describe, it, expect, beforeEach } from 'vitest'
-import { useCurrency } from '@/composables/useCurrency'
+import { describe, it, expect, beforeEach } from 'vitest';
+import { useCurrency } from '@/composables/useCurrency';
 
 describe('useCurrency', () => {
-  let currency: ReturnType<typeof useCurrency>
+  let currency: ReturnType<typeof useCurrency>;
 
   beforeEach(() => {
-    currency = useCurrency()
-  })
+    currency = useCurrency();
+  });
 
   it('should format currency correctly', () => {
-    const result = currency.formatCurrency('29.99')
-    expect(result).toMatch(/€\s*29\.99/)
-  })
-})
+    const result = currency.formatCurrency('29.99');
+    expect(result).toMatch(/€\s*29\.99/);
+  });
+});
 ```
 
 ### E2E Tests
@@ -153,40 +153,40 @@ describe('useCurrency', () => {
 #### Basic Test Structure
 
 ```typescript
-import { test, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test';
 
 test.describe('Feature', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-  })
+    await page.goto('/');
+  });
 
   test('should perform action', async ({ page }) => {
     // Arrange
-    await expect(page.locator('.card')).toBeVisible()
-    
+    await expect(page.locator('.card')).toBeVisible();
+
     // Act
-    await page.click('button:has-text("Add to Cart")')
-    
+    await page.click('button:has-text("Add to Cart")');
+
     // Assert
-    await expect(page.locator('[data-testid="cart-count"]')).toHaveText('1')
-  })
-})
+    await expect(page.locator('[data-testid="cart-count"]')).toHaveText('1');
+  });
+});
 ```
 
 #### Using Test Helpers
 
 ```typescript
-import { test, expect } from '@playwright/test'
-import { createTestHelpers, assertions } from '../utils/test-helpers'
+import { test, expect } from '@playwright/test';
+import { createTestHelpers, assertions } from '../utils/test-helpers';
 
 test('should add product to cart', async ({ page }) => {
-  const helpers = createTestHelpers(page)
-  
-  await helpers.waitForProducts()
-  await helpers.addProductToCart()
-  
-  await assertions.cartCountEquals(page, 1)
-})
+  const helpers = createTestHelpers(page);
+
+  await helpers.waitForProducts();
+  await helpers.addProductToCart();
+
+  await assertions.cartCountEquals(page, 1);
+});
 ```
 
 ## Test Data
@@ -200,10 +200,10 @@ export const mockProducts = [
     title: 'Test Product 1',
     description: 'A test product description',
     price: '29.99',
-    currency: 'USD'
-  }
+    currency: 'USD',
+  },
   // ...
-]
+];
 ```
 
 ## Best Practices
@@ -298,4 +298,4 @@ After running `yarn test:coverage`, you can find coverage reports in:
 - Check the test logs for detailed error messages
 - Use debug mode for step-by-step execution
 - Review the test configuration files
-- Consult the testing framework documentation 
+- Consult the testing framework documentation

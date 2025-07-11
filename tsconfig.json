@@ -27,7 +27,13 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "App.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "App.vue"
+  ],
   "exclude": ["vite.config.ts", "tsconfig.node.json"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

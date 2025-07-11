@@ -14,30 +14,37 @@ This is a Vue.js application with Server-Side Rendering (SSR) support.
 ## Development
 
 ### Development Mode (with SSR)
+
 ```bash
 yarn dev
 ```
+
 This starts the development server with SSR enabled at `http://localhost:3000`
 
 ### Client-Only Development
+
 ```bash
 yarn dev:client
 ```
+
 This starts the standard Vite dev server for client-only development.
 
 ## Building for Production
 
 ### Build both client and server
+
 ```bash
 yarn build
 ```
 
 ### Build client only
+
 ```bash
 yarn build:client
 ```
 
 ### Build server only
+
 ```bash
 yarn build:server
 ```
@@ -45,6 +52,7 @@ yarn build:server
 ## Production Server
 
 After building, start the production server:
+
 ```bash
 yarn serve
 ```

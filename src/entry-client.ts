@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import { createRouter, createWebHistory } from 'vue-router'
-import App from './App.vue'
-import HomePage from './components/HomePage.vue'
-import './assets/css/main.css'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import { createRouter, createWebHistory } from 'vue-router';
+import App from './App.vue';
+import HomePage from './components/HomePage.vue';
+import './assets/css/main.css';
 
 // Create router
 const router = createRouter({
@@ -12,24 +12,24 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomePage
+      component: HomePage,
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      redirect: '/'
-    }
-  ]
-})
+      redirect: '/',
+    },
+  ],
+});
 
 // Create app
-const app = createApp(App)
+const app = createApp(App);
 
 // Use plugins
-app.use(createPinia())
-app.use(router)
+app.use(createPinia());
+app.use(router);
 
 // Wait for router to be ready before mounting
 router.isReady().then(() => {
-  app.mount('#app')
-}) 
+  app.mount('#app');
+});

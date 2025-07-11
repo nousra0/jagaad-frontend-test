@@ -1,16 +1,16 @@
-import { config } from '@vue/test-utils'
-import { createPinia, setActivePinia } from 'pinia'
+import { config } from '@vue/test-utils';
+import { createPinia, setActivePinia } from 'pinia';
 
 // Create a fresh pinia instance for each test
-const pinia = createPinia()
+const pinia = createPinia();
 
 // Global test setup
 beforeEach(() => {
-  setActivePinia(pinia)
-})
+  setActivePinia(pinia);
+});
 
 // Configure Vue Test Utils
-config.global.plugins = [pinia]
+config.global.plugins = [pinia];
 
 // Mock IntersectionObserver if needed
 global.IntersectionObserver = class IntersectionObserver {
@@ -18,7 +18,7 @@ global.IntersectionObserver = class IntersectionObserver {
   disconnect() {}
   observe() {}
   unobserve() {}
-}
+};
 
 // Mock ResizeObserver if needed
 global.ResizeObserver = class ResizeObserver {
@@ -26,4 +26,4 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
   observe() {}
   unobserve() {}
-} 
+};

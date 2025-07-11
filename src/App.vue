@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import Header from './components/Header.vue'
-import Cart from './components/Cart.vue'
-import Wishlist from './components/Wishlist.vue'
+  import Header from './components/Header.vue';
+  import Cart from './components/Cart.vue';
+  import Wishlist from './components/Wishlist.vue';
 </script>
 
 <style>
-/* Global styles can be added here */
-</style> 
+  /* Global styles can be added here */
+</style>
