@@ -15,6 +15,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    outDir: 'dist/client',
     rollupOptions: {
       input: {
         app: resolve(__dirname, 'index.html'),
