@@ -9,7 +9,6 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       '~': resolve(__dirname, './'),
-      vue: 'vue/dist/vue.esm-bundler.js',
     },
   },
   server: {
@@ -24,6 +23,6 @@ export default defineConfig({
   },
   ssr: {
     // SSR-specific build options
-    noExternal: ['vue', 'vue-router', 'pinia'],
+    noExternal: ['vue-router', 'pinia'],
   },
 });
