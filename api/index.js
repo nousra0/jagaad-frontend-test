@@ -16,8 +16,8 @@ export async function createServer(
   // For Vercel deployment, the built files are in the root directory
   const resolve = p => {
     if (process.env.VERCEL) {
-      // In Vercel, the API is in /var/task/api/ and built files are in /var/task/
-      return path.resolve(process.cwd(), p);
+      // Go up one directory from /var/task/api/ to /var/task/
+      return path.resolve(__dirname, '../', p);
     }
     return path.resolve(__dirname, p);
   };
