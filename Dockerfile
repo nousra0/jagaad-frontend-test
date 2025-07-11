@@ -1,4 +1,4 @@
-# Multi-stage build for Vue.js SSR application
+# Multi-stage build for Vue.js SPA application
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
@@ -41,11 +41,9 @@ RUN adduser --system --uid 1001 vuejs
 
 # Copy built application
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/server ./server
-COPY --from=builder /app/package.json ./package.json
 
-# Copy only production dependencies
-COPY --from=deps /app/node_modules ./node_modules
+# Install a simple HTTP server
+RUN npm install -g serve
 
 # Change ownership to the vuejs user
 RUN chown -R vuejs:nodejs /app
@@ -58,7 +56,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })" || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 
 # Start the application
-CMD ["node", "server/index.js"] 
+CMD ["serve", "-s", "dist", "-l", "3000"] 

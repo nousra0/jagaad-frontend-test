@@ -1,6 +1,6 @@
-# 🛍️ Product Store - Vue.js SSR Application
+# 🛍️ Product Store - Vue.js SPA Application
 
-A modern, full-featured e-commerce frontend application built with Vue 3, TypeScript, and Server-Side Rendering (SSR). This project demonstrates best practices in modern web development with comprehensive testing, code quality tools, and deployment-ready configuration.
+A modern, full-featured e-commerce frontend application built with Vue 3, TypeScript, and Single Page Application (SPA) architecture. This project demonstrates best practices in modern web development with comprehensive testing, code quality tools, and deployment-ready configuration.
 
 ## ✨ Features & Implemented Requirements
 
@@ -48,12 +48,12 @@ A modern, full-featured e-commerce frontend application built with Vue 3, TypeSc
 - **Loading Animations**: Spinner and skeleton loading states
 - **Heart Animations**: Pulse effects for wishlist interactions
 
-### 🌐 **7. Server-Side Rendering (SSR)**
+### 🌐 **7. Single Page Application (SPA)**
 
-- **Full SSR Support**: Server-side rendering for improved SEO and performance
-- **Hydration**: Seamless client-side hydration
-- **Development SSR**: Hot module replacement with SSR during development
-- **Production Ready**: Optimized production build with Express server
+- **Client-Side Rendering**: Fast, responsive user interface
+- **Vue Router**: Client-side routing with history mode
+- **Optimized Performance**: Efficient bundle splitting and lazy loading
+- **Production Ready**: Optimized production build with static hosting
 
 ### 💰 **8. International Currency Support**
 
@@ -142,13 +142,10 @@ The application will be available at `http://localhost:3000`
 
 ```bash
 # Development
-yarn dev              # Start SSR development server
-yarn dev:client       # Start client-only development
+yarn dev              # Start development server
 
 # Building
 yarn build            # Build for production
-yarn build:client     # Build client only
-yarn build:server     # Build server only
 
 # Testing
 yarn test             # Run unit tests
@@ -181,12 +178,8 @@ yarn serve            # Start production server
 │   │   └── wishlistStore.ts # Wishlist state
 │   ├── composables/         # Reusable composables
 │   │   └── useCurrency.ts   # Currency formatting utilities
-│   ├── entry-client.ts      # Client entry point
-│   ├── entry-server.ts      # Server entry point
+│   ├── main.ts              # Application entry point
 │   └── App.vue              # Root component
-├── server/                  # Server-side code
-│   ├── index.js            # Production server
-│   └── dev-server.js       # Development server
 ├── tests/                   # Test files
 │   ├── unit/               # Unit tests
 │   ├── e2e/                # End-to-end tests
@@ -258,7 +251,7 @@ yarn serve
 This application is deployed on **Vercel** for optimal performance and scalability:
 
 - **Automatic Deployments**: Connected to Git repository for automatic deployments on push
-- **Serverless Functions**: Leverages Vercel's serverless architecture for SSR
+- **Static Hosting**: Optimized for static hosting platforms like Vercel, Netlify, or GitHub Pages
 - **Global CDN**: Content delivery network for fast loading worldwide
 - **Preview Deployments**: Automatic preview deployments for pull requests
 - **Environment Variables**: Secure environment variable management through Vercel dashboard

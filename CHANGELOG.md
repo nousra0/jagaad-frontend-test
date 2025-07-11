@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial project setup with Vue 3 + TypeScript
-- Server-side rendering (SSR) support
+- Single Page Application (SPA) architecture
 - Tailwind CSS and DaisyUI for styling
 - Pinia for state management
 - Vue Router for navigation

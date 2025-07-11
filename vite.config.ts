@@ -15,16 +15,11 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    outDir: 'dist/client',
+    outDir: 'dist',
     rollupOptions: {
       input: {
         app: resolve(__dirname, 'index.html'),
       },
     },
-    ssrManifest: true,
-  },
-  ssr: {
-    // SSR-specific build options
-    noExternal: ['vue-router', 'pinia'],
   },
 });

@@ -1,4 +1,4 @@
-# Development Dockerfile for Vue.js SSR application
+# Development Dockerfile for Vue.js SPA application
 FROM node:18-alpine
 
 # Install dependencies

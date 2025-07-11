@@ -1,6 +1,6 @@
 # Getting Started with FeedbackHub Frontend
 
-This guide will help you get up and running with the FeedbackHub frontend application, a Vue 3 SSR (Server-Side Rendering) application built with TypeScript, Pinia, and Tailwind CSS.
+This guide will help you get up and running with the Product Store frontend application, a Vue 3 SPA (Single Page Application) built with TypeScript, Pinia, and Tailwind CSS.
 
 ## 📋 Prerequisites
 
@@ -47,7 +47,7 @@ The application will be available at `http://localhost:3000`
 
 | Command             | Description                            |
 | ------------------- | -------------------------------------- |
-| `yarn dev`          | Start development server with SSR      |
+| `yarn dev`          | Start development server               |
 | `yarn dev:client`   | Start client-only development server   |
 | `yarn build`        | Build for production (client + server) |
 | `yarn build:client` | Build client bundle only               |
@@ -57,25 +57,16 @@ The application will be available at `http://localhost:3000`
 
 ### Development Modes
 
-#### SSR Development (Recommended)
+#### Development Server
 
 ```bash
 yarn dev
 ```
 
-- Full SSR experience during development
+- Fast development experience
 - Hot Module Replacement (HMR)
-- Server-side rendering with client hydration
-
-#### Client-Only Development
-
-```bash
-yarn dev:client
-```
-
-- Standard Vite dev server
-- Faster for UI-only development
-- No SSR during development
+- Client-side rendering
+- Vite development server
 
 ### Code Quality Tools
 
@@ -153,13 +144,8 @@ frontend-test/
 │   ├── composables/       # Vue composables
 │   │   ├── useCart.ts     # Cart functionality
 │   │   └── useCurrency.ts # Currency formatting
-│   ├── entry-client.ts    # Client entry point
-│   ├── entry-server.ts    # Server entry point
-│   ├── App.vue           # Root component
-│   └── main.ts           # Application entry
-├── server/
-│   ├── dev-server.js     # Development server
-│   └── index.js          # Production server
+│   ├── main.ts           # Application entry point
+│   └── App.vue           # Root component
 ├── public/               # Static assets
 ├── tests/                # Test files
 └── mock-products.json    # Mock product data

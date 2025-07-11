@@ -53,11 +53,13 @@ const router = createRouter({
 const app = createApp(App);
 
 // Register FontAwesome component globally
-app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('FontAwesomeIcon', FontAwesomeIcon);
 
 // Use plugins
 app.use(createPinia());
 app.use(router);
 
-// Mount app
-app.mount('#app');
+// Wait for router to be ready before mounting
+router.isReady().then(() => {
+  app.mount('#app');
+});
