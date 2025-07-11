@@ -29,7 +29,7 @@
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-2xl font-bold">Shopping Cart</h2>
           <label for="cart-drawer" class="btn btn-sm btn-circle btn-ghost">
-            <i class="fas fa-times w-4 h-4"></i>
+            <i class="fas fa-times w-3 h-3"></i>
           </label>
         </div>
 

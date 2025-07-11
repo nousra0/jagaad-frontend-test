@@ -190,9 +190,11 @@
     <!-- Search Bar -->
     <div class="mb-6">
       <div class="flex justify-end">
-        <div class="flex flex-col sm:flex-row gap-4 max-w-6xl">
+        <div
+          class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:max-w-6xl"
+        >
           <!-- Search Input -->
-          <div class="relative flex-1 min-w-96">
+          <div class="relative w-full sm:max-w-xl">
             <div
               class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
             >
@@ -217,7 +219,7 @@
           </div>
 
           <!-- Sort Select -->
-          <div class="sm:w-48">
+          <div class="w-full sm:w-96">
             <select
               v-model="sortOption"
               @change="handleSortChange"
