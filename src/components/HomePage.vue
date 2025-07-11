@@ -187,51 +187,48 @@
 
 <template>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Featured Products</h2>
-      <p class="text-gray-600">Discover our amazing collection of products</p>
-    </div>
-
     <!-- Search Bar -->
     <div class="mb-6">
-      <div class="flex flex-col sm:flex-row gap-4 max-w-2xl">
-        <!-- Search Input -->
-        <div class="relative flex-1">
-          <div
-            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-          >
-            <i class="fas fa-search h-5 w-5 text-gray-400"></i>
+      <div class="flex justify-end">
+        <div class="flex flex-col sm:flex-row gap-4 max-w-6xl">
+          <!-- Search Input -->
+          <div class="relative flex-1 min-w-96">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+            >
+              <i class="fas fa-search h-5 w-5 text-gray-400"></i>
+            </div>
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search products..."
+              class="input input-bordered w-full pl-5 pr-5"
+              @input="currentPage = 1"
+            />
+            <button
+              v-if="searchQuery"
+              @click="clearSearch"
+              class="absolute inset-y-0 right-0 pr-3 flex items-center"
+            >
+              <i
+                class="fas fa-times h-5 w-5 text-gray-400 hover:text-gray-600"
+              ></i>
+            </button>
           </div>
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="Search products..."
-            class="input input-bordered w-full pl-10 pr-10"
-            @input="currentPage = 1"
-          />
-          <button
-            v-if="searchQuery"
-            @click="clearSearch"
-            class="absolute inset-y-0 right-0 pr-3 flex items-center"
-          >
-            <i
-              class="fas fa-times h-5 w-5 text-gray-400 hover:text-gray-600"
-            ></i>
-          </button>
-        </div>
 
-        <!-- Sort Select -->
-        <div class="sm:w-48">
-          <select
-            v-model="sortOption"
-            @change="handleSortChange"
-            class="select select-bordered w-full"
-          >
-            <option value="default">Sort by</option>
-            <option value="price-high-low">Price: High to Low</option>
-            <option value="price-low-high">Price: Low to High</option>
-            <option value="alphabetical">Alphabetical</option>
-          </select>
+          <!-- Sort Select -->
+          <div class="sm:w-48">
+            <select
+              v-model="sortOption"
+              @change="handleSortChange"
+              class="select select-bordered w-full"
+            >
+              <option value="default">Sort by</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="price-low-high">Price: Low to High</option>
+              <option value="alphabetical">Alphabetical</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -297,7 +294,7 @@
         <button
           @click="goToPreviousPage"
           :disabled="currentPage === 1"
-          class="btn btn-outline btn-sm"
+          class="btn btn-primary"
           :class="{ 'btn-disabled': currentPage === 1 }"
         >
           <i class="fas fa-chevron-left w-4 h-4"></i>
@@ -308,18 +305,18 @@
           <template v-for="btn in paginationButtons">
             <button
               v-if="btn.type === 'page'"
-              :key="btn.value + '-btn'"
-              @click="goToPage(btn.value)"
-              class="join-item btn btn-sm"
+              :key="'page-' + btn.value"
+              @click="goToPage(Number(btn.value))"
+              class="join-item btn btn-primary"
               :class="btn.value === currentPage ? 'btn-active' : 'btn-outline'"
             >
               {{ btn.value }}
             </button>
             <button
               v-else
-              :key="btn.value + '-btn'"
+              :key="'ellipsis-' + btn.value"
               disabled
-              class="join-item btn btn-sm btn-disabled cursor-default"
+              class="join-item btn btn-primary btn-disabled cursor-default"
             >
               ...
             </button>
@@ -330,7 +327,7 @@
         <button
           @click="goToNextPage"
           :disabled="currentPage === totalPages"
-          class="btn btn-outline btn-sm"
+          class="btn btn-primary"
           :class="{ 'btn-disabled': currentPage === totalPages }"
         >
           <i class="fas fa-chevron-right w-4 h-4"></i>

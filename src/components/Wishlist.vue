@@ -37,7 +37,9 @@
 
         <!-- Empty Wishlist -->
         <div v-if="wishlistStore.isWishlistEmpty" class="text-center py-8">
-          <i class="fas fa-heart w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+          <i
+            class="fas fa-heart w-16 h-16 mx-auto text-gray-400 mb-4 text-3xl"
+          ></i>
           <p class="text-gray-500">Your wishlist is empty</p>
         </div>
 
@@ -76,7 +78,7 @@
               <div class="flex justify-between items-center mt-3">
                 <button
                   @click="moveToCart(product)"
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-primary btn-sm text-white"
                 >
                   Move to Cart
                 </button>

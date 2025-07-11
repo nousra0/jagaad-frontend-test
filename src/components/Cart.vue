@@ -36,7 +36,7 @@
         <!-- Empty Cart -->
         <div v-if="cartStore.isCartEmpty" class="text-center py-8">
           <i
-            class="fas fa-shopping-cart w-16 h-16 mx-auto text-gray-400 mb-4"
+            class="fas fa-shopping-cart w-16 h-16 mx-auto text-gray-400 mb-4 text-3xl"
           ></i>
           <p class="text-gray-500">Your cart is empty</p>
         </div>

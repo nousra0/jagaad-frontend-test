@@ -48,11 +48,11 @@
       <!-- Wishlist Button -->
       <button
         @click="handleWishlistToggle"
-        class="absolute top-2 right-2 btn btn-circle btn-sm"
+        class="absolute top-5 right-5 btn btn-circle p-0 flex items-center justify-center"
         :class="
           wishlistStore.isInWishlist(product.title)
-            ? 'btn-primary'
-            : 'btn-ghost bg-white/80 hover:bg-white'
+            ? 'btn-primary w-8 h-8'
+            : 'btn-ghost bg-white/80 hover:bg-white w-8 h-8'
         "
       >
         <i
@@ -61,7 +61,7 @@
               ? 'fas fa-heart'
               : 'far fa-heart'
           "
-          class="w-4 h-4"
+          class="w-8 h-8 text-xl flex items-center justify-center"
         ></i>
       </button>
     </figure>
@@ -73,10 +73,13 @@
         {{ product.description }}
       </p>
       <div class="card-actions justify-between items-center mt-4">
-        <div class="text-2xl font-bold text-primary">
+        <div class="text-xl font-bold text-gray-500">
           {{ formatCurrencyWithCode(product.price, product.currency) }}
         </div>
-        <button @click="handleAddToCart" class="btn btn-primary btn-sm">
+        <button
+          @click="handleAddToCart"
+          class="btn btn-primary btn-sm text-white"
+        >
           Add to Cart
         </button>
       </div>

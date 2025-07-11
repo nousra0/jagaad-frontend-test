@@ -17,10 +17,13 @@
         <div class="flex items-center">
           <h1 class="text-3xl font-bold text-gray-900">Product Store</h1>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center">
           <!-- Wishlist Button -->
-          <label for="wishlist-drawer" class="btn btn-ghost relative">
-            <i class="fas fa-heart w-6 h-6"></i>
+          <label
+            for="wishlist-drawer"
+            class="btn btn-ghost relative hover:border hover:border-primary hover:text-primary hover:bg-white transition-colors duration-200"
+          >
+            <i class="fas fa-heart w-3 h-3"></i>
             <span class="ml-2">Wishlist</span>
             <span
               v-if="wishlistStore.wishlistCount > 0"
@@ -31,8 +34,11 @@
           </label>
 
           <!-- Cart Button -->
-          <label for="cart-drawer" class="btn btn-ghost relative">
-            <i class="fas fa-shopping-cart w-6 h-6"></i>
+          <label
+            for="cart-drawer"
+            class="btn btn-ghost mr-5 relative hover:border hover:border-primary hover:text-primary hover:bg-white transition-colors duration-200"
+          >
+            <i class="fas fa-shopping-cart w-3 h-3"></i>
             <span class="ml-2">Cart</span>
             <span
               v-if="cartStore.cartCount > 0"
@@ -59,7 +65,3 @@
     </div>
   </header>
 </template>
-
-<style scoped>
-  /* Additional styles can be added here if needed */
-</style>
