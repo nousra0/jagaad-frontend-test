@@ -1,97 +1,76 @@
-# Frontend Coding Challenge 🚀
+# Vue SSR Application
 
-Welcome to our frontend coding challenge! This is a great opportunity for you to showcase your frontend skills.
-We're excited to see what you come up with! 🎨🖥️
+This is a Vue.js application with Server-Side Rendering (SSR) support.
 
-## Overview 🌐
+## Features
 
-Your task is to create a simple e-commerce-like application that fetches product data
-from a provided JSON file on GitHub and displays them with some interactive features.
+- Vue 3 with Composition API
+- Server-Side Rendering (SSR)
+- Vue Router for client-side routing
+- Pinia for state management
+- Tailwind CSS for styling
+- TypeScript support
 
-Use any modern frontend framework/library (e.g., React, Vue, Angular, Nuxt, Next) with TypeScript.
-Any styling solution is accepted.
+## Development
 
-## Data Source 📊
+### Development Mode (with SSR)
+```bash
+yarn dev
+```
+This starts the development server with SSR enabled at `http://localhost:3000`
 
-You will be fetching the product data from the [`mock-products.json`](mock-products.json) raw JSON file hosted in this repository.
-Here's the link to the JSON file:
+### Client-Only Development
+```bash
+yarn dev:client
+```
+This starts the standard Vite dev server for client-only development.
 
-```text
-https://raw.githubusercontent.com/jagaad/frontend-test/main/mock-products.json
+## Building for Production
+
+### Build both client and server
+```bash
+yarn build
 ```
 
-> The data was generated using [`@faker-js/faker`](https://fakerjs.dev/)
+### Build client only
+```bash
+yarn build:client
+```
 
-Each product in the JSON file has the following fields:
+### Build server only
+```bash
+yarn build:server
+```
 
-- `image`: URL to the product image (string, url)
-- `title`: Name of the product (string)
-- `description`: Brief description of the product (string)
-- `price`: Price of the product (string)
-- `currency` Currency of the price (string, ISO 4217)
+## Production Server
 
-## Requirements 📝
+After building, start the production server:
+```bash
+yarn serve
+```
 
-### 1. Home Page 🏠
+## Project Structure
 
-- Display 10 products at a time.
-- Each product should show the `image`, `title`, `description`, `price` and `currency`.
-- Ensure the design is responsive and looks good on both desktop and mobile.
+```
+├── src/
+│   ├── entry-client.ts    # Client entry point for hydration
+│   ├── entry-server.ts    # Server entry point for SSR
+│   ├── App.vue           # Root component
+│   ├── components/       # Vue components
+│   ├── stores/          # Pinia stores
+│   └── assets/          # Static assets
+├── server/
+│   ├── index.js         # Production server
+│   └── dev-server.js    # Development server
+├── index.html           # HTML template
+└── vite.config.ts       # Vite configuration
+```
 
-### 2. Pagination 📄
+## How SSR Works
 
-- Implement client-side pagination for the products.
-- Users should be able to navigate through different pages to view all the products.
+1. **Server Entry Point** (`src/entry-server.ts`): Renders the Vue app to HTML on the server
+2. **Client Entry Point** (`src/entry-client.ts`): Hydrates the server-rendered HTML on the client
+3. **Development Server** (`server/dev-server.js`): Handles SSR during development with HMR
+4. **Production Server** (`server/index.js`): Serves the built SSR application
 
-### 3. Client-Side Cart 🛒
-
-- Users should be able to add products to their cart.
-- Display a cart icon with a counter indicating the number of items and total sum of the cart.
-- Users should be able to view their cart and remove items if needed.
-
-### 4. Client-Side Wish List 💖
-
-- Users should be able to add products to their wish list.
-- Display a heart or star icon indicating the wish list.
-- Users should be able to view their wish list and remove items if needed.
-
-## Bonus Points 🌟
-
-Add anything that you consider would impress us. Example:
-
-- Write documentation how to get started with the project
-- Use Conventional Commits
-- Add animations or transitions for better user experience.
-- Consider using Server Side Rendering (SSR)
-- Use `Intl` API to render `price` and `currency`
-- Implement a search functionality to filter products.
-- Add a CHANGELOG with version releases.
-- Create a Dockerfile that makes the project a ready image for deploy.
-- Deploy it somewhere (e.g. Vercel, Netlify) as a static website.
-- Add some unit or E2E tests.
-- Use a library such as CSS Modules, Styled Components, Bootstrap, Tailwind CSS, or Material-UI for styling.
-- Make use of Prettier, ESLint, Stylelint or Commitlint.
-- Configure git hooks to format code at commit.
-
-## Submission Guidelines 📮
-
-- Create a public repository on any platform of GitHub or GitLab platform.
-- Push the code in the repository.
-- Contact the HR with the link to the repository to be reviewed.
-- The challenge is designed to be moderately challenging, striking a balance between simplicity and complexity.
-- This challenge is expected to be done in approximately one day.
-
-## Evaluation Criteria 🧐
-
-- Code quality and organization.
-- Responsiveness and design.
-- Functionality and user experience.
-- Bonus features implemented.
-
-## Wrapping Up 🎁
-
-We hope you enjoy this challenge! Remember, it's not just about getting it done, but also about showcasing your creativity, skills, and approach to problem-solving. Happy coding! 🎉👩‍💻👨‍💻
-
----
-
-**Note**: Please make sure to test your application thoroughly before submitting. If you have any questions or need clarifications, feel free to reach out.
+The application uses Vue Router with memory history on the server and web history on the client for proper SSR support.
